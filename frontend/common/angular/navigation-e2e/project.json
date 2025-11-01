@@ -1,0 +1,9 @@
+{
+  "name": "navigation-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "common/angular/navigation-e2e/src",
+  "implicitDependencies": ["navigation"],
+  "// targets": "to see all targets run: nx show project navigation-e2e --web",
+  "targets": {}
+}

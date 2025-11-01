@@ -1,0 +1,8 @@
+autoInstallPeers: true
+strictPeerDependencies: false
+
+packages:
+  - 'api/**'
+  - 'common/**'
+  - 'vds'
+  - 'web/**'

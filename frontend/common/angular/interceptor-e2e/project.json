@@ -1,0 +1,9 @@
+{
+  "name": "interceptor-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "common/angular/interceptor-e2e/src",
+  "implicitDependencies": ["interceptor"],
+  "// targets": "to see all targets run: nx show project interceptor-e2e --web",
+  "targets": {}
+}
