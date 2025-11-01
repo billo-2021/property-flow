@@ -1,0 +1,9 @@
+{
+  "name": "validator-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "common/angular/validator-e2e/src",
+  "implicitDependencies": ["validator"],
+  "// targets": "to see all targets run: nx show project validator-e2e --web",
+  "targets": {}
+}

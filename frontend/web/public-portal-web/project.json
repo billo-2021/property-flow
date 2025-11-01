@@ -1,0 +1,96 @@
+{
+  "name": "public-portal-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "web/public-portal-web/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/web/public-portal-web",
+        "browser": "web/public-portal-web/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "web/public-portal-web/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "web/public-portal-web/public"
+          }
+        ],
+        "styles": ["web/public-portal-web/src/styles.scss"],
+        "server": "web/public-portal-web/src/main.server.ts",
+        "ssr": {
+          "entry": "web/public-portal-web/src/server.ts"
+        },
+        "outputMode": "server"
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "public-portal-web:build:production"
+        },
+        "development": {
+          "buildTarget": "public-portal-web:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular/build:extract-i18n",
+      "options": {
+        "buildTarget": "public-portal-web:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "web/public-portal-web/jest.config.ts",
+        "tsConfig": "web/public-portal-web/tsconfig.spec.json"
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "public-portal-web:build",
+        "port": 4200,
+        "staticFilePath": "dist/web/public-portal-web/browser",
+        "spa": true
+      }
+    }
+  }
+}

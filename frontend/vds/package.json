@@ -1,0 +1,10 @@
+{
+  "name": "@frontend/vds",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "tslib": "^2.3.0"
+  }
+}
